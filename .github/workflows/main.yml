@@ -3,7 +3,7 @@ name: Scrolling Script Execution
 on:
   schedule:
     - cron: "*/10 * * * *"  # Exécute toutes les 10 minutes
-  workflow_dispatch: # Permet de lancer le script manuellement
+  workflow_dispatch:  # Permet de lancer le script manuellement
 
 jobs:
   run-script:
@@ -21,7 +21,36 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install -r requirements.txt  # Installe les dépendances spécifiées dans requirements.txt
 
       - name: Run scrolling script
-        run: python scrolling_script.py
+        run: python scrolling_script.py  # Exécute le script de défilement
+
+
+# name: Scrolling Script Execution
+
+# on:
+#   schedule:
+#     - cron: "*/10 * * * *"  # Exécute toutes les 10 minutes
+#   workflow_dispatch: # Permet de lancer le script manuellement
+
+# jobs:
+#   run-script:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Check out repository
+#         uses: actions/checkout@v2
+
+#       - name: Set up Python
+#         uses: actions/setup-python@v2
+#         with:
+#           python-version: '3.x'  # Choisis la version de Python requise
+
+#       - name: Install dependencies
+#         run: |
+#           python -m pip install --upgrade pip
+#           pip install -r requirements.txt
+
+#       - name: Run scrolling script
+#         run: python scrolling_script.py
